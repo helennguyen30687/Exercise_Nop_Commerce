@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Nop Commerce" duration-ms="20345" started-at="2021-08-26T03:29:39Z" finished-at="2021-08-26T03:30:00Z">
+    <groups>
+    </groups>
+    <test name="Run on FIREFOX" duration-ms="20345" started-at="2021-08-26T03:29:39Z" finished-at="2021-08-26T03:30:00Z">
+      <class name="com.nopCommerce.register.Login">
+        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:com.nopCommerce.register.Login@28feb3fa]" name="beforeClass" is-config="true" duration-ms="14242" started-at="2021-08-26T03:29:39Z" finished-at="2021-08-26T03:29:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://demo.nopcommerce.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="TC_01_Login_Empty_Data()[pri:0, instance:com.nopCommerce.register.Login@28feb3fa]" name="TC_01_Login_Empty_Data" duration-ms="6049" started-at="2021-08-26T03:29:54Z" finished-at="2021-08-26T03:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_01_Login_Empty_Data -->
+      </class> <!-- com.nopCommerce.register.Login -->
+    </test> <!-- Run on FIREFOX -->
+  </suite> <!-- Nop Commerce -->
+</testng-results>
