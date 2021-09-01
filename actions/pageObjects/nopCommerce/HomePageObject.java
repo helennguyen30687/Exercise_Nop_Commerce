@@ -18,17 +18,39 @@ public class HomePageObject extends BasePage {
 		return isElementDisplayed(driver, HomePageUI.HOME_PAGE_SLIDER);
 	}
 
-	public RegisterPageObject clickToRegisterLink() {
-		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
-		clickToElement(driver, HomePageUI.REGISTER_LINK);
-		return PageGeneratorManager.getRegisterPage(driver);
+	public void clickToDesktopMenu() {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public LoginPageObject clickOnLoginLink() {
-		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
-		clickToElement(driver, HomePageUI.LOGIN_LINK);
-		return PageGeneratorManager.getLoginPage(driver);
+	public void clickToProductLink() {
+		// TODO Auto-generated method stub
+		
 	}
 
+	public void clickToAddReviewLink() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterToReviewTitleTextbox(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterToReviewTextTextbox(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void selectToRatingRadiobutton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void clickToSubmitButton() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

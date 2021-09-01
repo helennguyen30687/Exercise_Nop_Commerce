@@ -28,7 +28,7 @@ public class Register extends BaseTest {
 	@Test
 	public void TC_01_Register_Empty_Data() {
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
-		registerPage = homePage.clickToRegisterLink();
+		registerPage =  (RegisterPageObject) homePage.getMenuToTransferedPageByNameOnTop(driver, "Register");
 		registerPage.clickOnRegisterButton();
 		Assert.assertTrue(registerPage.isEmptyFirstNameErrorMessage());
 		Assert.assertTrue(registerPage.isEmptyLastNameErrorMessage());
@@ -40,7 +40,7 @@ public class Register extends BaseTest {
 	public void TC_02_Register_Invalid_Email() {
 		registerPage.clickOnRegisterLink();
 		Assert.assertTrue(registerPage.isRegisterTitlePageDisplayed());
-		registerPage = homePage.clickToRegisterLink();
+		registerPage =  (RegisterPageObject) homePage.getMenuToTransferedPageByNameOnTop(driver, "Register");
 		registerPage.clicktoGenderMaleRadiobutton();
 		registerPage.enterToFirstNameTextbox("Helen");
 		registerPage.enterToLastNameTextbox("Nguyen");
@@ -63,9 +63,9 @@ public class Register extends BaseTest {
 		registerPage.enterToConfirmPasswordTextbox(password);
 		registerPage.clickOnRegisterButton();
 		
-		registerPage.clickToLogOutLink();
+		registerPage= (RegisterPageObject) registerPage.getMenuToTransferedPageByNameOnTop(driver, "Register");
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
-		registerPage = homePage.clickToRegisterLink();
+		registerPage =  (RegisterPageObject) homePage.getMenuToTransferedPageByNameOnTop(driver, "Register");
 		registerPage.clicktoGenderMaleRadiobutton();
 		registerPage.enterToFirstNameTextbox("Helen");
 		registerPage.enterToLastNameTextbox("Nguyen");

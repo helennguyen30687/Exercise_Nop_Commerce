@@ -5,12 +5,12 @@
   <test thread-count="5" name="Run on FIREFOX(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.nopCommerce.register.Login">
+      <class name="com.nopCommerce.register.MyAccount">
         <methods>
+          <include name="TC_03_Change_Password"/>
           <include name="beforeClass"/>
-          <include name="TC_01_Login_Empty_Data"/>
         </methods>
-      </class> <!-- com.nopCommerce.register.Login -->
+      </class> <!-- com.nopCommerce.register.MyAccount -->
     </classes>
   </test> <!-- Run on FIREFOX(failed) -->
 </suite> <!-- Failed suite [Nop Commerce] -->

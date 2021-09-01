@@ -21,13 +21,11 @@ public class RegisterPageObject extends BasePage {
 	public void clicktoGenderMaleRadiobutton() {
 		waitForElementVisible(driver, RegisterPageUI.GENDER_MALE_RADIO);
 		clickToElement(driver, RegisterPageUI.GENDER_MALE_RADIO);
-
 	}
 
 	public void enterToFirstNameTextbox(String value) {
 		waitForElementVisible(driver, RegisterPageUI.FIRST_NAME_TEXTBOX);
 		sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, value);
-
 	}
 
 	public void enterToLastNameTextbox(String value) {
@@ -53,12 +51,6 @@ public class RegisterPageObject extends BasePage {
 	public void clickOnRegisterLink() {
 		waitForElementVisible(driver, RegisterPageUI.REGISTER_LINK);
 		clickToElement(driver, RegisterPageUI.REGISTER_LINK);
-	}
-
-	public HomePageObject clickToLogOutLink() {
-		waitForElementClickable(driver, RegisterPageUI.LOG_OUT_LINK);
-		clickToElement(driver, RegisterPageUI.LOG_OUT_LINK);
-		return PageGeneratorManager.getHomePage(driver);
 	}
 
 	public boolean isEmptyFirstNameErrorMessage() {
@@ -113,7 +105,6 @@ public class RegisterPageObject extends BasePage {
 		waitForElementVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_NOT_MATCH_PASSWORD_ERROR_MESSAGE);
 		clickToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_NOT_MATCH_PASSWORD_ERROR_MESSAGE);
 		return isElementDisplayed(driver, RegisterPageUI.CONFIRM_PASSWORD_NOT_MATCH_PASSWORD_ERROR_MESSAGE);
-
 	}
 
 	public boolean isRegisterInvalidEmailErrorMessage() {

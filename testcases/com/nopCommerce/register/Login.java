@@ -23,23 +23,38 @@ public class Login extends BaseTest {
 		driver = getBrowserDriver(browserName, appUrl);
 		emailAddress = getRandomEmail();
 		password = "123456";
-
 		homePage = new HomePageObject(driver);
-
+		loginPage =  (LoginPageObject) homePage.getMenuToTransferedPageByNameOnTop(driver, "Log in");
 	}
 
 	@Test
 	public void TC_01_Login_Empty_Data() {
-		loginPage = homePage.clickOnLoginLink();
 		loginPage.sleepInSecond(3);
 		loginPage.clickOnLoginButton();
 		Assert.assertTrue(loginPage.isEmptyEmailErrorMessage());
 	}
-
+	
 	@Test
-	public void TC_06_Login_Success() {
-		registerPage = new RegisterPageObject(driver);
-		registerPage.clickOnRegisterLink();
+	public void TC_02_Login_Invalid_Email() {
+		loginPage.sleepInSecond(3);
+		loginPage.enterToEmailTextbox("helen@123.");
+		loginPage.enterToPasswordTextbox(password);
+		loginPage.clickOnLoginButton();
+		Assert.assertTrue(loginPage.isInvalidEmailErrorMessage());
+	}
+	
+	@Test
+	public void TC_03_Login_Not_Exist_Email() {
+		loginPage.sleepInSecond(3);
+		loginPage.enterToEmailTextbox("helenolala@yahoo.com");
+		loginPage.enterToPasswordTextbox(password);
+		loginPage.clickOnLoginButton();
+		Assert.assertTrue(loginPage.isNotExistEmailErrorMessage());
+	}
+	
+	@Test
+	public void TC_04_Login_Registered_Email_Null_Password() {
+		registerPage = (RegisterPageObject) loginPage.getMenuToTransferedPageByNameOnTop(driver, "Register");
 		Assert.assertTrue(registerPage.isRegisterTitlePageDisplayed());
 		registerPage.clicktoGenderMaleRadiobutton();
 		registerPage.enterToFirstNameTextbox("Helen");
@@ -50,13 +65,31 @@ public class Login extends BaseTest {
 		registerPage.clickOnRegisterButton();
 		Assert.assertTrue(registerPage.isRegisterSuccessMessageDisplayed());
 
-		homePage = registerPage.clickToLogOutLink();
+		homePage = (HomePageObject) registerPage.getMenuToTransferedPageByNameOnTop(driver, "Log out");
 		homePage.sleepInSecond(3);
-		homePage.clickOnLoginLink();
-		homePage.sleepInSecond(3);
-		homePage.enterDataToEmailTextbox(emailAddress);
-		homePage.enterDataToPasswordTextbox(password);
-		homePage.clickOnLoginButton();
+		loginPage = (LoginPageObject) homePage.getMenuToTransferedPageByNameOnTop(driver, "Log in");
+		loginPage.enterToEmailTextbox(emailAddress);
+		loginPage.clickOnLoginButton();
+		Assert.assertTrue(loginPage.isRegisteredEmailPasswordNull());
+	}
+	
+	@Test
+	public void TC_05_Login_Registered_Email_Incorrect_Password() {
+		loginPage=(LoginPageObject) loginPage.getMenuToTransferedPageByNameOnTop(driver, "Log in");
+		loginPage.sleepInSecond(3);
+		loginPage.enterToEmailTextbox(emailAddress);
+		loginPage.enterToPasswordTextbox("123654");
+		loginPage.clickOnLoginButton();
+		Assert.assertTrue(loginPage.isRegisteredEmailIncorrectPassword());
+	}
+	
+	@Test
+	public void TC_06_Login_Success() {
+		loginPage=(LoginPageObject) loginPage.getMenuToTransferedPageByNameOnTop(driver, "Log in");
+		loginPage.sleepInSecond(3);
+		loginPage.enterToEmailTextbox(emailAddress);
+		loginPage.enterToPasswordTextbox(password);
+		loginPage.clickOnLoginButton();
 	}
 
 	public String getRandomEmail() {
@@ -70,4 +103,5 @@ public class Login extends BaseTest {
 
 	RegisterPageObject registerPage;
 	HomePageObject homePage;
+	LoginPageObject loginPage;
 }

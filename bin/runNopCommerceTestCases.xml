@@ -8,7 +8,7 @@
 		<parameter name="browser" value="firefox" />
 		<classes>
 		<!-- 	<class name="com.nopCommerce.register.Register" />-->
-			<class name="com.nopCommerce.register.Login" />
+			<class name="com.nopCommerce.register.MyAccount" />
 			<!-- 
 		<class name=" com.nopcommerce.login.Level_07_Register_Login_Page_Switch_Page"/>
 			<class name=" com.nopcommerce.login.Level_06_Register_Login_Page_Generator" />
